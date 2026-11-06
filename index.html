@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6e9f6">
+<meta name="description" content="Lịch tuần pastel dễ thương, sắp xếp việc học và nhắc giờ.">
+
+<title>Ngày của tớ 🌷 — Pastel Planner V3</title>
+<style>
+:root{--ink:#4f455f;--muted:#94879f;--pink:#ffe1ec;--lav:#e8e0ff;--mint:#dcf5e7;--yellow:#fff2cb;--paper:#fffdfd;--line:#efe6f1;--accent:#a58ad7;--shadow:0 12px 35px #8c6a9c12}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(135deg,#fff0f6,#f4f0ff 55%,#effcf5);font-family:ui-rounded,"Segoe UI",system-ui,sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer}
+main{max-width:1240px;margin:auto;padding:24px 18px 46px}.hero{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 20px}.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#a38cba;font-weight:900}.hero h1{font-size:clamp(28px,4vw,43px);margin:5px 0}.hero p{margin:0;color:var(--muted)}.sticker{font-size:54px;filter:drop-shadow(0 8px 8px #d6c8e8)}
+.layout{display:grid;grid-template-columns:350px minmax(0,1fr);gap:17px;align-items:start}.panel{background:#ffffffdc;border:1px solid #fff;border-radius:23px;padding:20px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}h2{font-size:18px;margin:0 0 15px}h3{font-size:15px;margin:0}.field{margin:11px 0}.field label{display:block;font-size:11px;font-weight:850;color:#887b96;margin-bottom:6px}.field input,.field select,.smart-input{width:100%;border:1px solid var(--line);background:#fffaff;border-radius:11px;padding:10px 11px;color:var(--ink);outline:none}.field input:focus,.field select:focus,.smart-input:focus{border-color:#c4b2ed;box-shadow:0 0 0 3px #eee7ff}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}.btn{border:0;border-radius:12px;padding:10px 13px;font-weight:850;font-size:13px;transition:.15s}.btn:hover{transform:translateY(-1px)}.primary{background:#b5a0e5;color:#fff;box-shadow:0 5px 12px #b6a1e633}.soft{background:#f3edff;color:#7965a3}.pink{background:#ffe5ee;color:#a85e7a}.mint{background:#e2f8eb;color:#528c6a}.btnrow{display:flex;gap:8px;flex-wrap:wrap}.btnrow .btn{flex:1}.small{font-size:11px;color:var(--muted);line-height:1.55}.smart-input{width:100%;min-height:112px;resize:vertical;border:1px solid var(--line);background:#fffaff;border-radius:12px;padding:11px 12px;color:var(--ink);outline:none;font:inherit;font-size:12px;line-height:1.55}.smartbox{background:linear-gradient(135deg,#fff7fb,#f8f4ff);border:1px solid #f0e5f5;border-radius:16px;padding:12px;margin:0 0 16px}.smartbox h3{margin-bottom:7px}.smart-hint{font-size:10px;color:var(--muted);line-height:1.5;margin:7px 0 0}.divider{height:1px;background:var(--line);margin:17px 0}.weeknav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}.weeklabel{font-size:13px;font-weight:850}.navbtn{width:34px;height:34px;border:0;border-radius:10px;background:#f5efff;color:#8f78b3;font-size:18px}.weekdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:16px}.daybtn{border:1px solid transparent;border-radius:14px;background:#faf6ff;color:var(--muted);padding:10px 2px 8px;min-width:0}.daybtn .dn{font-size:10px;font-weight:850}.daybtn .dd{display:block;font-size:17px;color:var(--ink);font-weight:900;margin:3px 0}.daybtn .dot{display:block;height:5px;width:5px;border-radius:50%;background:#c7b4e9;margin:4px auto 0}.daybtn.selected{background:#e9e0ff;border-color:#d4c3fa;color:#8068ab}.daybtn.today .dd{color:#a66c91}.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}.datepill{font-size:11px;color:#8a78a0;background:#f8f2ff;border-radius:999px;padding:8px 10px;white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}.stat{padding:11px;border-radius:14px;background:#fff3f7}.stat:nth-child(2){background:#f4f0ff}.stat:nth-child(3){background:#effbf4}.stat strong{display:block;font-size:21px}.stat span{font-size:10px;color:var(--muted)}.sectionline{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:15px 0 10px}.timeline{display:flex;flex-direction:column;gap:8px}.slot{display:grid;grid-template-columns:75px minmax(0,1fr);gap:9px;align-items:stretch}.time{font-size:11px;color:#998ca6;padding-top:13px;font-weight:850}.task{display:flex;align-items:center;gap:10px;padding:11px;border-radius:15px;border:1px solid #f3eaf5;background:#fff;min-width:0}.task .emoji{font-size:22px}.taskcontent{flex:1;min-width:0}.taskname{font-size:13px;font-weight:850;overflow-wrap:anywhere}.meta{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4}.task.done{opacity:.58}.task.done .taskname{text-decoration:line-through}.tag{font-size:9px;padding:5px 7px;border-radius:999px;background:#f3edff;color:#8972b6;white-space:nowrap}.tag.urgent{background:#ffe8ef;color:#b66483}.tag.locked{background:#fff2ce;color:#9b8245}.tag.break{background:#e9f9ef;color:#579572}.check{width:17px;height:17px;accent-color:#a58ad7;cursor:pointer;flex-shrink:0}.iconbtn{border:0;background:transparent;color:#bd96ab;font-size:17px;padding:2px}.empty{text-align:center;padding:25px 12px;color:var(--muted);font-size:12px}.empty .emoji{font-size:34px}.notice{padding:11px 12px;background:#fff8df;border-radius:12px;font-size:11px;line-height:1.5;color:#8d7540;margin-top:12px}.status{font-size:11px;color:#6c997d;margin-top:9px;min-height:15px}.unplanned{border:1px dashed #dfc2d7;border-radius:14px;padding:10px;margin-top:12px;background:#fff8fc}.unplanned .task{margin-top:7px;background:#fff}.footer{text-align:center;color:#aa9db2;font-size:10px;margin-top:20px}.toggleline{display:flex;align-items:center;gap:8px;font-size:12px;color:#887b96}.toggleline input{accent-color:#a58ad7}.pillline{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.weekdaylabel{background:#f4efff;border-radius:99px;padding:5px 8px;font-size:10px;color:#907bb0}
+dialog{border:1px solid #fff;border-radius:22px;padding:22px;max-width:440px;width:calc(100% - 28px);box-shadow:0 24px 100px #51465f44;color:var(--ink);background:#fffafd}dialog::backdrop{background:#48395755;backdrop-filter:blur(3px)}dialog h2{margin-bottom:12px}.dialogactions{display:flex;gap:8px;margin-top:16px}.dialogactions button{flex:1}.hidden{display:none!important}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.panel{padding:17px}.hero{align-items:flex-start}.sticker{font-size:43px}}@media(max-width:430px){main{padding:17px 10px 30px}.two{grid-template-columns:1fr 1fr}.daybtn .dn{font-size:9px}.daybtn .dd{font-size:15px}.weekdays{gap:3px}.slot{grid-template-columns:59px minmax(0,1fr);gap:6px}.task{gap:7px;padding:9px}.tag{display:none}.topline{align-items:flex-start}.stats{gap:5px}.stat{padding:9px}.stat strong{font-size:18px}}
+</style>
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Ngày của tớ">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+</head>
+<body><main>
+<header class="hero"><div><div class="eyebrow">✿ your soft little planner</div><h1>Ngày của tớ 🌷</h1><p>Lịch tuần xinh xắn, làm việc vừa đủ và nhớ nghỉ ngơi nha.</p></div><div class="sticker">🧸</div></header>
+<div class="layout">
+<aside class="panel">
+<h2>💌 Thêm một việc</h2>
+<div class="smartbox">
+  <h3>🪄 Nhập nhiều việc bằng câu thường</h3>
+  <textarea id="smartInput" class="smart-input" placeholder="Mai ôn Hóa 45 phút (gấp)
+Làm bài tiếng Anh trước thứ Sáu, 30 phút
+Thứ Bảy dọn phòng 20 phút
+Ôn Toán lúc 19h, 50 phút"></textarea>
+  <div class="btnrow" style="margin-top:8px"><button class="btn primary" type="button" id="parseSmart">✨ Hiểu và thêm việc</button><button class="btn soft" type="button" id="smartExample">Điền ví dụ</button></div>
+  <p class="smart-hint">Mỗi dòng là một việc; có thể ghi “mai”, “thứ Sáu”, “trước thứ Sáu”, “45 phút”, “1 tiếng”, “gấp”, “lúc 19h”. Ngày mặc định là ngày đang chọn.</p>
+</div>
+<form id="taskForm">
+<div class="field"><label for="taskName">Tên việc cần làm</label><input id="taskName" required maxlength="120" placeholder="VD: Ôn Hóa bài 1–3"></div>
+<div class="two"><div class="field"><label for="taskDate">Ngày</label><input id="taskDate" type="date" required></div><div class="field"><label for="duration">Thời lượng (phút)</label><input id="duration" type="number" min="5" max="600" value="45" required></div></div>
+<div class="two"><div class="field"><label for="priority">Độ ưu tiên</label><select id="priority"><option value="2">Bình thường</option><option value="3">Quan trọng</option><option value="4">Gấp nhất</option></select></div><div class="field"><label for="deadline">Hạn hoàn thành</label><input id="deadline" type="datetime-local"></div></div>
+<div class="field"><label for="preferred">Giờ bắt đầu (không bắt buộc)</label><input id="preferred" type="time"></div>
+<label class="toggleline"><input id="lockNew" type="checkbox"> Cố định ở giờ đã chọn</label>
+<div class="btnrow" style="margin-top:13px"><button class="btn primary" type="submit">＋ Thêm việc</button><button class="btn soft" type="button" id="clearForm">Làm mới</button></div>
+</form>
+<div class="divider"></div><h2>🕰️ Khung giờ hằng ngày</h2>
+<div class="two"><div class="field"><label for="dayStart">Bắt đầu ngày</label><input id="dayStart" type="time" value="06:00"></div><div class="field"><label for="dayEnd">Kết thúc ngày</label><input id="dayEnd" type="time" value="22:30"></div></div>
+<div class="two"><div class="field"><label for="busyStart">Giờ bận từ</label><input id="busyStart" type="time" value="07:00"></div><div class="field"><label for="busyEnd">Giờ bận đến</label><input id="busyEnd" type="time" value="11:30"></div></div>
+<div class="two"><div class="field"><label for="sleepAt">Giờ đi ngủ</label><input id="sleepAt" type="time" value="22:30"></div><div class="field"><label for="breakLen">Nghỉ giữa việc (phút)</label><input id="breakLen" type="number" min="5" max="45" value="10"></div></div>
+<div class="field"><label for="busyDays">Áp dụng giờ bận vào</label><select id="busyDays"><option value="weekdays">Thứ 2 – Thứ 6</option><option value="all">Cả tuần</option><option value="weekend">Thứ 7 – Chủ nhật</option><option value="none">Không áp dụng</option></select></div>
+<div class="btnrow"><button class="btn primary" type="button" id="autoPlan">✨ Xếp lại ngày này</button><button class="btn soft" type="button" id="autoWeek">🌈 Xếp cả tuần</button></div>
+<div class="divider"></div><h2>🔔 Nhắc giờ</h2>
+<label class="toggleline"><input id="soundToggle" type="checkbox" checked> Phát âm thanh khi đến giờ</label>
+<div class="btnrow" style="margin-top:10px"><button class="btn mint" type="button" id="enableNotify">🔔 Bật thông báo</button><button class="btn soft" type="button" id="testSound">🎵 Thử âm thanh</button></div>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+<div class="notice">Thông báo và tiếng chuông hoạt động khi web/PWA vẫn đang chạy. Cho phép quyền thông báo và giữ ứng dụng mở. Đóng hẳn ứng dụng thì không bảo đảm nhắc giờ; muốn nhận thông báo đẩy khi đóng cần thiết lập máy chủ riêng.</div>
+<p class="small">Lịch được lưu trên thiết bị này. Bản mẫu dùng thuật toán xếp lịch cục bộ, chưa kết nối AI trực tuyến.</p>
+</aside>
+<section class="panel">
+<div class="weeknav"><button class="navbtn" id="prevWeek" aria-label="Tuần trước">‹</button><div class="weeklabel" id="weekLabel">Tuần này</div><button class="navbtn" id="nextWeek" aria-label="Tuần sau">›</button></div>
+<div class="weekdays" id="weekdays"></div>
+<div class="topline"><div><h2 style="margin:0 0 4px">🌼 Lịch của ngày</h2><div class="small" id="selectedLabel">Chọn một ngày để bắt đầu</div></div><span class="datepill" id="datePill"></span></div>
+<div class="stats"><div class="stat"><strong id="total">0</strong><span>việc trong ngày</span></div><div class="stat"><strong id="finished">0</strong><span>đã hoàn thành</span></div><div class="stat"><strong id="minutes">0p</strong><span>phút tập trung còn lại</span></div></div>
+<div class="sectionline"><h3>☁️ Các khung giờ</h3><button class="btn soft" id="todayBtn" type="button">Về hôm nay</button></div>
+<div id="timeline" class="timeline"></div><div id="unplanned" class="unplanned hidden"><b style="font-size:12px">🧺 Chưa xếp được giờ</b><div id="unplannedList"></div></div>
+<div class="divider"></div><div class="btnrow"><button class="btn soft" id="sample" type="button">Thử lịch mẫu</button><button class="btn pink" id="export" type="button">⬇ Xuất JSON</button><button class="btn soft" id="importBtn" type="button">⬆ Nhập JSON</button><input type="file" id="importFile" accept="application/json,.json" class="hidden"></div>
+</section></div><div class="footer">made with ♡ and a little pastel magic · dữ liệu nằm trên thiết bị của bạn</div></main>
+
+<dialog id="editDialog"><form id="editForm"><h2>🪄 Chỉnh sửa việc</h2><input type="hidden" id="editId"><div class="field"><label for="editName">Tên việc</label><input id="editName" required maxlength="120"></div><div class="two"><div class="field"><label for="editDate">Ngày</label><input id="editDate" type="date" required></div><div class="field"><label for="editDuration">Thời lượng (phút)</label><input id="editDuration" type="number" min="5" max="600" required></div></div><div class="two"><div class="field"><label for="editPriority">Độ ưu tiên</label><select id="editPriority"><option value="2">Bình thường</option><option value="3">Quan trọng</option><option value="4">Gấp nhất</option></select></div><div class="field"><label for="editDeadline">Hạn hoàn thành</label><input id="editDeadline" type="datetime-local"></div></div><div class="field"><label for="editTime">Giờ bắt đầu</label><input id="editTime" type="time"></div><label class="toggleline"><input id="editLock" type="checkbox"> Cố định ở giờ đã chọn</label><div class="dialogactions"><button type="button" class="btn soft" id="cancelEdit">Huỷ</button><button type="submit" class="btn primary">Lưu thay đổi</button></div></form></dialog>
+<script>
+const $=id=>document.getElementById(id);
+const DAY=86400000;
+function dateKey(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function fromKey(s){const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d,12)}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x}
+function mondayOf(d){const x=fromKey(dateKey(d));x.setDate(x.getDate()-(x.getDay()+6)%7);return x}
+function mins(t){if(!t)return null;const [h,m]=t.split(':').map(Number);return h*60+m}
+function fmt(n){n=((n%1440)+1440)%1440;return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0')}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const weekdayShort=['CN','T2','T3','T4','T5','T6','T7'];
+let tasks=load('pastelTasksV2',[]), selectedDate=dateKey(new Date()), weekStart=mondayOf(new Date()), notified=new Set(load('pastelNotified',[])), audioCtx=null;
+function load(k,f){try{const v=JSON.parse(localStorage.getItem(k));return v??f}catch{return f}}
+function syncNativeNotifications(){try{if(window.PlannerBridge&&typeof window.PlannerBridge.syncTasks==='function')window.PlannerBridge.syncTasks(JSON.stringify(tasks))}catch(e){}}
+function save(){localStorage.setItem('pastelTasksV2',JSON.stringify(tasks));localStorage.setItem('pastelNotified',JSON.stringify([...notified]));syncNativeNotifications()}
+function say(msg){$('status').textContent=msg}
+function dateTasks(day){return tasks.filter(t=>t.date===day)}
+function dayName(s){return fromKey(s).toLocaleDateString('vi-VN',{weekday:'long',day:'numeric',month:'long'})}
+function isBusyDay(s){const d=fromKey(s).getDay(),mode=$('busyDays').value;return mode==='all'||(mode==='weekdays'&&d>=1&&d<=5)||(mode==='weekend'&&(d===0||d===6))}
+function intervalSettings(){const start=mins($('dayStart').value),end=mins($('dayEnd').value),sleep=mins($('sleepAt').value);return {start,end,sleep,busyStart:mins($('busyStart').value),busyEnd:mins($('busyEnd').value),br:Math.max(5,Math.min(45,Number($('breakLen').value)||10))}}
+function makeFree(day, fixed, s){
+ let blocks=[];if(isBusyDay(day)&&s.busyStart!==null&&s.busyEnd!==null&&s.busyEnd>s.busyStart)blocks.push([s.busyStart,s.busyEnd]);
+ if(s.sleep>s.start&&s.sleep<s.end)blocks.push([s.sleep,s.end]);
+ for(const t of fixed){if(t.start!==null&&t.start!==undefined)blocks.push([t.start,t.start+t.duration])}
+ blocks=blocks.map(([a,b])=>[Math.max(a,s.start),Math.min(b,s.end)]).filter(([a,b])=>b>a).sort((a,b)=>a[0]-b[0]);
+ let merged=[];for(const b of blocks){if(!merged.length||b[0]>merged[merged.length-1][1])merged.push(b.slice());else merged[merged.length-1][1]=Math.max(merged[merged.length-1][1],b[1])}
+ let free=[],cur=s.start;for(const [a,b] of merged){if(a>cur)free.push([cur,a]);cur=Math.max(cur,b)}if(cur<s.end)free.push([cur,s.end]);return free
+}
+function overlaps(a,b,other){return other.some(t=>t.start!==null&&t.start!==undefined&&a<t.start+t.duration&&b>t.start)}
+function autoDay(day){
+ const s=intervalSettings();if(s.end<=s.start){say('Giờ kết thúc phải sau giờ bắt đầu nha.');return false}
+ const dayList=dateTasks(day), fixed=dayList.filter(t=>t.locked&&t.start!==null&&t.start!==undefined);
+ for(let i=0;i<fixed.length;i++){for(let j=i+1;j<fixed.length;j++){if(fixed[i].start<fixed[j].start+fixed[j].duration&&fixed[i].start+fixed[i].duration>fixed[j].start){say('Hai việc cố định đang trùng giờ. Sửa giờ một việc rồi xếp lại nha.');return false}}}
+ let free=makeFree(day,fixed,s), pending=dayList.filter(t=>!t.done&&!t.locked).sort((a,b)=>b.priority-a.priority||((a.deadline||'9999').localeCompare(b.deadline||'9999')));
+ pending.forEach(t=>{t.start=null});
+ for(const t of pending){
+   let found=-1;for(let i=0;i<free.length;i++){if(free[i][1]-free[i][0]>=t.duration){found=i;break}}
+   if(found>=0){let [a,b]=free[found];t.start=a;let next=a+t.duration+s.br;if(next<=b){free[found][0]=Math.min(next,b);if(free[found][0]>=b)free.splice(found,1)}else{free[found][0]=a+t.duration;if(free[found][0]>=b)free.splice(found,1)}}
+ }
+ save();render();let overflow=pending.filter(t=>t.start===null).length;say(overflow?`Đã xếp lịch; còn ${overflow} việc chưa đủ chỗ. Thử tăng khung giờ rảnh hoặc giảm thời lượng nhé.`:'Xếp lịch xong rồi nè ✨ Nhớ để thời gian nghỉ cho mình nha!');return true
+}
+function autoWeek(){let ok=true;for(let i=0;i<7;i++)if(!autoDay(dateKey(addDays(weekStart,i))))ok=false;if(ok)say('Đã xếp lịch cho cả tuần 🌈')}
+function renderWeek(){
+ $('weekLabel').textContent=`Tuần ${weekStart.toLocaleDateString('vi-VN',{day:'numeric',month:'short'})} – ${addDays(weekStart,6).toLocaleDateString('vi-VN',{day:'numeric',month:'short',year:'numeric'})}`;
+ $('weekdays').innerHTML=Array.from({length:7},(_,i)=>{const d=addDays(weekStart,i),k=dateKey(d),list=dateTasks(k);return `<button class="daybtn ${k===selectedDate?'selected':''} ${k===dateKey(new Date())?'today':''}" data-day="${k}"><span class="dn">${weekdayShort[d.getDay()]}</span><span class="dd">${d.getDate()}</span><span class="dn">${list.length?list.filter(t=>t.done).length+'/'+list.length:'&nbsp;'}</span><span class="dot" style="${list.length?'':'visibility:hidden'}"></span></button>`}).join('');
+}
+function render(){
+ renderWeek();$('selectedLabel').textContent=dayName(selectedDate);$('datePill').textContent=fromKey(selectedDate).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'});
+ if($('taskDate'))$('taskDate').value=selectedDate;
+ const dayList=dateTasks(selectedDate).sort((a,b)=>(a.start??9999)-(b.start??9999));
+ $('total').textContent=dayList.length;$('finished').textContent=dayList.filter(t=>t.done).length;$('minutes').textContent=dayList.filter(t=>!t.done).reduce((n,t)=>n+t.duration,0)+'p';
+ if(!dayList.length){$('timeline').innerHTML='<div class="empty"><div class="emoji">📝✨</div><p>Chưa có việc nào cho ngày này.<br>Thêm việc hoặc nhấn <b>Thử lịch mẫu</b> nha!</p></div>'}
+ else{
+  let entries=[];
+  for(const t of dayList){if(t.start!==null&&t.start!==undefined)entries.push({...t,entryType:'task'})}
+  entries.sort((a,b)=>a.start-b.start);
+  // Add visual breaks between adjacent tasks when the gap allows it.
+  let display=[];for(let i=0;i<entries.length;i++){display.push(entries[i]);if(i<entries.length-1){const gap=entries[i+1].start-(entries[i].start+entries[i].duration),br=intervalSettings().br;if(gap>=br)display.push({id:'break-'+entries[i].id,start:entries[i].start+entries[i].duration,duration:br,name:'Nghỉ ngơi một chút',entryType:'break'})}}
+  const unscheduled=dayList.filter(t=>t.start===null||t.start===undefined);
+  $('timeline').innerHTML=display.map(t=>{if(t.entryType==='break')return `<div class="slot"><div class="time">${fmt(t.start)}<br>↓ ${fmt(t.start+t.duration)}</div><div class="task" style="background:#f3fff7"><span class="emoji">☕</span><div class="taskcontent"><div class="taskname">Nghỉ ngơi một chút</div><div class="meta">${t.duration} phút nạp năng lượng</div></div><span class="tag break">break</span></div></div>`;
+   return `<div class="slot"><div class="time">${fmt(t.start)}<br>↓ ${fmt(t.start+t.duration)}</div><div class="task ${t.done?'done':''}"><input class="check" data-done="${t.id}" type="checkbox" aria-label="Đánh dấu hoàn thành" ${t.done?'checked':''}><span class="emoji">${t.done?'🌟':t.priority>=4?'🔥':'📚'}</span><div class="taskcontent"><div class="taskname">${esc(t.name)}</div><div class="meta">${t.duration} phút${t.deadline?' · Hạn '+new Date(t.deadline).toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):''}</div></div>${t.locked?'<span class="tag locked">cố định</span>':t.priority>=4?'<span class="tag urgent">gấp</span>':''}<button class="iconbtn" data-edit="${t.id}" title="Chỉnh sửa giờ và việc">✎</button><button class="iconbtn" data-delete="${t.id}" title="Xoá việc">×</button></div></div>`}).join('');
+  $('unplanned').classList.toggle('hidden',!unscheduled.length);$('unplannedList').innerHTML=unscheduled.map(t=>`<div class="task"><span class="emoji">🧺</span><div class="taskcontent"><div class="taskname">${esc(t.name)}</div><div class="meta">${t.duration} phút · Chưa tìm được khung giờ</div></div><button class="iconbtn" data-edit="${t.id}" title="Chỉnh sửa">✎</button></div>`).join('');
+ }
+}
+$('weekdays').addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(b){selectedDate=b.dataset.day;render()}});
+$('prevWeek').onclick=()=>{weekStart=addDays(weekStart,-7);selectedDate=dateKey(weekStart);render()};
+$('nextWeek').onclick=()=>{weekStart=addDays(weekStart,7);selectedDate=dateKey(weekStart);render()};
+$('todayBtn').onclick=()=>{selectedDate=dateKey(new Date());weekStart=mondayOf(new Date());render()};
+function normText(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase()}
+function datePlus(day, n){return dateKey(addDays(fromKey(day),n))}
+function weekdayNumber(token){const x=normText(token).replace(/\s+/g,' ').trim();if(x==='chu nhat'||x==='cn')return 0;const m=x.match(/thu\s*(hai|bay|sau|nam|tu|ba|[2-7])\b/);if(!m)return null;return ({hai:1,ba:2,tu:3,nam:4,sau:5,bay:6,'2':1,'3':2,'4':3,'5':4,'6':5,'7':6})[m[1]]}
+function weekdayDate(base, token, strictFuture=false){const wd=weekdayNumber(token);if(wd===null)return null;let delta=(wd-fromKey(base).getDay()+7)%7;if(strictFuture&&delta===0)delta=7;return datePlus(base,delta)}
+function parseDatePhrase(text, base, strictFuture=false){const n=normText(text);
+ let m=n.match(/\b(?:hom nay|ngay hom nay)\b/);if(m)return base;
+ m=n.match(/\b(?:ngay mai|mai)\b/);if(m)return datePlus(base,1);
+ m=n.match(/\b(?:ngay kia|ngay mot|kia|mot)\b/);if(m)return datePlus(base,2);
+ m=n.match(/\b(?:chu\s*nhat|cn|thu\s*(?:hai|ba|tu|nam|sau|bay|[2-7]))\b/);if(m)return weekdayDate(base,m[0],strictFuture);
+ m=n.match(/\b(?:ngay\s*)?(\d{1,2})[/-](\d{1,2})(?:[/-](\d{2,4}))?\b/);if(m){let y=m[3]?Number(m[3]):fromKey(base).getFullYear();if(y<100)y+=2000;const d=new Date(y,Number(m[2])-1,Number(m[1]),12);if(d.getMonth()===Number(m[2])-1&&d.getDate()===Number(m[1]))return dateKey(d)}
+ return null}
+function parseDuration(text){const n=normText(text);let m;
+ if(/\b nua tieng\b|\bban tieng\b/.test(n))return 30;
+ if(/\b1 tieng ruoi\b/.test(n))return 90;
+ m=n.match(/\b(\d+)\s*(?:tieng|gio)\s*(\d{1,2})\s*phut\b/);if(m)return Math.max(5,Math.min(600,Number(m[1])*60+Number(m[2])));
+ m=n.match(/\b(\d+)\s*(?:phut|mins?|minutes?)\b/);if(m)return Math.max(5,Math.min(600,Number(m[1])));
+ m=n.match(/\b(\d+)\s*h\s*(\d{1,2})\b/);if(m){const h=Number(m[1]),mm=Number(m[2]);if(h>=13||/\bluc\s+\d{1,2}h/.test(n))return 30;return Math.max(5,Math.min(600,h*60+mm))}
+ m=n.match(/\b(\d+)\s*(?:tieng|gio|hours?|hrs?)\b/);if(m&&!/\bluc\s+\d{1,2}\s*(?:gio|h)?/.test(n))return Math.max(5,Math.min(600,Number(m[1])*60));
+ return 30}
+function parseClock(text){const n=normText(text);let m=n.match(/\bluc\s+(\d{1,2})(?:(?::|h)(\d{1,2})|\s+gio(?:\s+(\d{1,2}))?)?/);if(m){const h=Number(m[1]),mm=Number(m[2]??m[3]??0);if(h<24&&mm<60)return h*60+mm}
+ m=n.match(/\b(\d{1,2}):(\d{2})\b/);if(m&&Number(m[1])<24&&Number(m[2])<60)return Number(m[1])*60+Number(m[2]);
+ m=n.match(/\b(\d{1,2})h(\d{1,2})?\b/);if(m&&Number(m[1])>=13&&Number(m[1])<24&&Number(m[2]||0)<60)return Number(m[1])*60+Number(m[2]||0);
+ return null}
+function parseSmartLine(line, base){
+ const raw=line.replace(/^\s*(?:[-*•]|\d+[.)])\s*/,'').trim();if(!raw)return null;const n=normText(raw);
+ let deadline='',deadlineMatch=n.match(/\b(?:nop\s+truoc|truoc|deadline|han(?:\s+nop)?|cham\s+nhat)\s+(?:ngay\s+)?(?:thu\s*(?:hai|ba|tu|nam|sau|bay|[2-7])|chu\s*nhat|cn|hom nay|ngay mai|mai|ngay kia|kia|ngay mot|mot|\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?)\b/);
+ let searchForTaskDate=n;
+ if(deadlineMatch){const phrase=deadlineMatch[0].replace(/^(?:nop\s+truoc|truoc|deadline|han(?:\s+nop)?|cham\s+nhat)\s+/,'').replace(/^ngay\s+(?=\d)/,'');let due=parseDatePhrase(phrase,base,!!/^(?:truoc|nop\s+truoc)\b/.test(deadlineMatch[0]));if(due){if(/^(?:truoc|nop\s+truoc)\b/.test(deadlineMatch[0]))due=datePlus(due,-1);deadline=due+'T23:59'}searchForTaskDate=n.replace(deadlineMatch[0],' ')}
+ let taskDate=parseDatePhrase(searchForTaskDate,base,false)||base;
+ const duration=parseDuration(raw),priority=/\b(gap|khan cap|khan|urgent|uu tien cao|rat quan trong)\b/.test(n)?4:(/\b(quan trong|uu tien)\b/.test(n)?3:2),start=parseClock(raw);
+ let name=raw;
+ function stripNorm(pattern){const normalized=normText(name);const matches=[...normalized.matchAll(new RegExp(pattern.source,pattern.flags.includes('g')?pattern.flags:pattern.flags+'g'))];for(const m of matches.sort((a,b)=>b.index-a.index)){name=name.slice(0,m.index)+' '+name.slice(m.index+m[0].length)}}
+ stripNorm(/\b(?:nop\s+truoc|truoc|deadline|han(?:\s+nop)?|cham\s+nhat)\s+(?:ngay\s+)?(?:thu\s*(?:hai|bay|sau|nam|tu|ba|[2-7])|chu\s*nhat|cn|hom nay|ngay mai|mai|ngay kia|kia|ngay mot|mot|\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?)\b/gi);
+ stripNorm(/\b(?:ngay hom nay|hom nay|ngay mai|mai|ngay kia|ngay mot|kia|mot|thu\s*(?:hai|bay|sau|nam|tu|ba|[2-7])|chu\s*nhat|cn)\b/gi);
+ stripNorm(/\b\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?\b/g);
+ stripNorm(/\b(?:nua tieng|ban tieng|1 tieng ruoi|\d+\s*(?:phut|mins?|minutes?|tieng|gio|hours?|hrs?)|\d+\s*h\s*\d{1,2})\b/gi);
+ stripNorm(/\bluc\s+\d{1,2}(?::\d{1,2}|h\d{0,2}|\s*gio(?:\s*\d{1,2})?)?/gi);
+ stripNorm(/\b\d{1,2}:\d{2}\b|\b\d{1,2}h\d{0,2}\b/gi);
+ stripNorm(/\b(?:rat\s+)?(?:gap|khan cap|khan|urgent|uu tien cao|quan trong|uu tien)\b/gi);
+ stripNorm(/\b(?:tao can|minh can|toi can|hay|nho|phai|can|giup tao|giup minh|giup toi|voi nha)\b/gi);
+ name=name.replace(/[()\[\]{}]/g,' ').replace(/[,:;.!—–-]+/g,' ').replace(/\s+/g,' ').trim();
+ if(name.length>120)name=name.slice(0,120).trim();if(!name)name=raw.slice(0,120);
+ return {id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name,date:taskDate,duration,priority,deadline,start,locked:start!==null,done:false};
+}
+$('smartExample').onclick=()=>{$('smartInput').value=['Mai kiểm tra Hóa, phải ôn 45 phút (gấp)','Làm bài tiếng Anh trước thứ Sáu, 30 phút','Thứ Bảy dọn phòng 20 phút','Ôn Toán lúc 19h, 50 phút (quan trọng)'].join('\n')};
+$('parseSmart').onclick=()=>{const lines=$('smartInput').value.split(/\n|;/).map(s=>s.trim()).filter(Boolean);if(!lines.length){say('Dán danh sách việc vào ô trước nha 🌷');return}const added=lines.map(line=>parseSmartLine(line,selectedDate)).filter(Boolean);if(!added.length){say('Tao chưa đọc được dòng nào. Thử viết mỗi việc trên một dòng nha.');return}tasks.push(...added);save();const days=[...new Set(added.map(t=>t.date))];for(const d of days)autoDay(d);selectedDate=added[0].date;weekStart=mondayOf(fromKey(selectedDate));render();say(`Đã hiểu và thêm ${added.length} việc vào ${days.length} ngày 🌷 Kiểm tra lại giờ, thời lượng và hạn nộp nha.`);$('smartInput').value=''};
+$('taskForm').addEventListener('submit',e=>{e.preventDefault();const p=$('preferred').value?mins($('preferred').value):null;tasks.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name:$('taskName').value.trim(),date:$('taskDate').value,duration:Math.max(5,Math.min(600,Number($('duration').value)||30)),priority:Number($('priority').value),deadline:$('deadline').value||'',start:p,locked:!!$('lockNew').checked&&p!==null,done:false});selectedDate=$('taskDate').value;weekStart=mondayOf(fromKey(selectedDate));save();$('taskName').value='';$('preferred').value='';$('lockNew').checked=false;autoDay(selectedDate)});
+$('clearForm').onclick=()=>{$('taskName').value='';$('preferred').value='';$('deadline').value='';$('duration').value=45;$('priority').value='2';$('lockNew').checked=false};
+$('autoPlan').onclick=()=>autoDay(selectedDate);$('autoWeek').onclick=autoWeek;
+$('timeline').addEventListener('change',e=>{const id=e.target.dataset.done;if(!id)return;const t=tasks.find(t=>t.id===id);if(t){t.done=e.target.checked;save();render()}});
+function openEdit(id){const t=tasks.find(t=>t.id===id);if(!t)return;$('editId').value=t.id;$('editName').value=t.name;$('editDate').value=t.date;$('editDuration').value=t.duration;$('editPriority').value=t.priority;$('editDeadline').value=t.deadline||'';$('editTime').value=t.start===null||t.start===undefined?'':fmt(t.start);$('editLock').checked=!!t.locked;$('editDialog').showModal()}
+$('timeline').addEventListener('click',e=>{const ed=e.target.dataset.edit,del=e.target.dataset.delete;if(ed)openEdit(ed);if(del){if(confirm('Xoá việc này khỏi lịch nha?')){tasks=tasks.filter(t=>t.id!==del);save();render()}}});
+$('unplannedList').addEventListener('click',e=>{const id=e.target.dataset.edit;if(id)openEdit(id)});
+$('cancelEdit').onclick=()=>$('editDialog').close();
+$('editForm').addEventListener('submit',e=>{e.preventDefault();const t=tasks.find(t=>t.id===$('editId').value);if(!t)return;const oldDate=t.date;t.name=$('editName').value.trim();t.date=$('editDate').value;t.duration=Math.max(5,Math.min(600,Number($('editDuration').value)||30));t.priority=Number($('editPriority').value);t.deadline=$('editDeadline').value||'';t.start=$('editTime').value?mins($('editTime').value):null;t.locked=!!$('editLock').checked&&t.start!==null;t.done=t.done;selectedDate=t.date;weekStart=mondayOf(fromKey(selectedDate));$('editDialog').close();save();if(!t.locked)autoDay(selectedDate);else{render();say('Đã lưu thay đổi ✨')}});
+$('sample').onclick=()=>{const d=selectedDate;tasks=tasks.filter(t=>t.date!==d);tasks.push({id:'sample-'+d+'-1',date:d,name:'Ôn tập Hóa bài 1–3',duration:45,priority:4,deadline:'',start:null,locked:false,done:false},{id:'sample-'+d+'-2',date:d,name:'Làm bài tập tiếng Anh',duration:35,priority:3,deadline:'',start:null,locked:false,done:false},{id:'sample-'+d+'-3',date:d,name:'Ôn Toán',duration:50,priority:3,deadline:'',start:null,locked:false,done:false},{id:'sample-'+d+'-4',date:d,name:'Thời gian chơi game',duration:60,priority:2,deadline:'',start:null,locked:false,done:false});save();autoDay(d)};
+$('export').onclick=()=>{const blob=new Blob([JSON.stringify({version:2,tasks,settings:{dayStart:$('dayStart').value,dayEnd:$('dayEnd').value,busyStart:$('busyStart').value,busyEnd:$('busyEnd').value,sleepAt:$('sleepAt').value,breakLen:$('breakLen').value,busyDays:$('busyDays').value}},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='pastel-planner-backup.json';a.click();URL.revokeObjectURL(a.href);say('Đã xuất bản sao JSON nha 💗')};
+$('importBtn').onclick=()=>$('importFile').click();
+$('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const obj=JSON.parse(await f.text());if(!Array.isArray(obj.tasks))throw Error('format');tasks=obj.tasks;save();if(obj.settings)for(const [k,v] of Object.entries(obj.settings)){const el=$(k);if(el)el.value=v}render();say('Nhập lịch thành công 🌷')}catch{say('File không đúng định dạng bản sao Planner.')}e.target.value=''});
+function tone(){try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;audioCtx=audioCtx||new AC();if(audioCtx.state==='suspended')audioCtx.resume();const t=audioCtx.currentTime;[659.25,880,1046.5].forEach((hz,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=hz;g.gain.setValueAtTime(.0001,t+i*.16);g.gain.exponentialRampToValueAtTime(.14,t+i*.16+.025);g.gain.exponentialRampToValueAtTime(.0001,t+i*.16+.32);o.connect(g);g.connect(audioCtx.destination);o.start(t+i*.16);o.stop(t+i*.16+.34)})}catch{}}
+$('testSound').onclick=()=>{tone();say('Ting ting! 🎵 Nếu nghe được âm thanh thì ổn rồi nha.')};
+$('enableNotify').onclick=async()=>{if(window.PlannerBridge&&typeof window.PlannerBridge.requestNotifications==='function'){window.PlannerBridge.requestNotifications();say('Đang mở quyền thông báo Android… Nếu máy hỏi quyền báo thức, hãy cho phép để nhắc giờ tốt hơn nha 🌷');return}if(!('Notification'in window)){say('Trình duyệt này chưa hỗ trợ thông báo. Hãy thử Chrome hoặc Edge.');return}try{const p=await Notification.requestPermission();audioCtx=audioCtx||(window.AudioContext||window.webkitAudioContext?new (window.AudioContext||window.webkitAudioContext)():null);if(audioCtx&&audioCtx.state==='suspended')await audioCtx.resume();say(p==='granted'?'Đã bật quyền thông báo! Giữ web đang chạy để nhận nhắc giờ 🔔':p==='denied'?'Thông báo bị chặn. Mở cài đặt trang web trên trình duyệt để cho phép.':'Chưa cấp quyền thông báo.')}catch{say('Không bật được thông báo trên trình duyệt này.')}};
+function reminders(){if(window.PlannerBridge)return;if(document.visibilityState==='prerender')return;const d=new Date(),day=dateKey(d),m=d.getHours()*60+d.getMinutes();for(const t of tasks){if(t.date!==day||t.start===null||t.start===undefined||t.done||t.start!==m)continue;const key=t.id+'@'+day;if(notified.has(key))continue;notified.add(key);save();if($('soundToggle').checked)tone();if('Notification'in window&&Notification.permission==='granted'){try{new Notification('Đến giờ rồi nè 🌷',{body:t.name+' · '+t.duration+' phút',tag:'pastel-'+key,icon:'icon-192.png'})}catch{}}else{say('Đến giờ: '+t.name+' 🔔')}}}
+setInterval(reminders,5000);
+
+$('taskDate').value=selectedDate;render();syncNativeNotifications();
+</script><script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(()=>{})); }</script>
+</body></html>

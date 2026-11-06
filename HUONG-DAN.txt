@@ -1,0 +1,15 @@
+NGÀY CỦA TỚ – BẢN DÀNH CHO IPHONE
+
+Đây là gói PWA (ứng dụng web có thể thêm vào Màn hình chính), không phải file IPA cài trực tiếp.
+
+CÁCH CÀI TRÊN IPHONE
+1. Đưa toàn bộ các file trong thư mục này lên một dịch vụ lưu trữ website có HTTPS (ví dụ GitHub Pages).
+2. Mở đường dẫn website bằng Safari trên iPhone.
+3. Nhấn nút Chia sẻ (biểu tượng hình vuông có mũi tên).
+4. Chọn “Thêm vào MH chính” / “Add to Home Screen”.
+5. Nhấn “Thêm”. Biểu tượng Ngày của tớ sẽ xuất hiện trên Màn hình chính.
+
+LƯU Ý
+- Dữ liệu lịch hiện được lưu trong bộ nhớ trình duyệt của thiết bị (localStorage). Nên dùng cùng một iPhone/Safari để tránh dữ liệu không đồng bộ giữa các thiết bị.
+- Đây không phải ứng dụng App Store và chưa phải bản IPA ký số.
+- Nhắc giờ/thông báo có thể bị giới hạn trên iOS; cần kiểm tra trên iPhone thực tế. Bản này giữ nguyên mã chức năng trong APK, chỉ bổ sung cấu hình PWA và chạy ngoại tuyến cho các tệp giao diện.
